@@ -1,3 +1,55 @@
+// Se o JavaScript não carregar, os links continuam acessíveis sem menu expansível.
+document.documentElement.classList.add("js");
+
+const menuToggle = document.querySelector("#menu-toggle");
+const menuPanel = document.querySelector("#site-navigation");
+const menuBackdrop = document.querySelector("#menu-backdrop");
+const mobileMenu = window.matchMedia("(max-width: 48rem)");
+const pageBody = document.body;
+
+function setMenu(open, { restoreFocus = false } = {}) {
+  const active = Boolean(open && mobileMenu.matches);
+  pageBody.classList.toggle("menu-open", active);
+  menuToggle.setAttribute("aria-expanded", String(active));
+  menuToggle.setAttribute("aria-label", active ? "Fechar menu de navegação" : "Abrir menu de navegação");
+  menuPanel.inert = mobileMenu.matches && !active;
+  if (!active && restoreFocus && mobileMenu.matches) menuToggle.focus({ preventScroll: true });
+}
+
+menuToggle.addEventListener("click", () => {
+  const opening = menuToggle.getAttribute("aria-expanded") !== "true";
+  setMenu(opening);
+});
+menuBackdrop.addEventListener("click", () => setMenu(false, { restoreFocus: true }));
+menuPanel.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", () => setMenu(false));
+});
+document.querySelector(".logo").addEventListener("click", () => setMenu(false));
+
+// Esc e Tab respeitam o menu expansível, inclusive para teclado/leitor de tela.
+document.addEventListener("keydown", event => {
+  if (!pageBody.classList.contains("menu-open")) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    setMenu(false, { restoreFocus: true });
+  } else if (event.key === "Tab") {
+    const items = [menuToggle, ...menuPanel.querySelectorAll("a")];
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
+
+function syncMenu() { setMenu(false); }
+mobileMenu.addEventListener("change", syncMenu);
+syncMenu();
+
 const navigation = [...document.querySelectorAll(".site-header nav a")];
 const sections = navigation.map(link => document.querySelector(link.hash));
 const header = document.querySelector(".sticky-header");
@@ -15,7 +67,10 @@ function updateNavigation() {
   }
 }
 
-window.addEventListener("scroll", updateNavigation, { passive: true });
+window.addEventListener("scroll", () => {
+  header.classList.toggle("is-scrolled", window.scrollY > 12);
+  updateNavigation();
+}, { passive: true });
 window.addEventListener("resize", updateNavigation);
 updateNavigation();
 
@@ -23,47 +78,80 @@ for (const card of document.querySelectorAll(".area")) {
   const front = card.querySelector(".area-front");
   const back = card.querySelector(".area-back");
   const show = front.querySelector("button");
-  const hide = back.querySelector("button");
 
-  function flip(open) {
+  back.tabIndex = 0;
+
+  function flip(open, { restoreFocus = true } = {}) {
     card.classList.toggle("is-flipped", open);
     front.inert = open;
     back.inert = !open;
     show.setAttribute("aria-expanded", String(open));
-    (open ? hide : show).focus({ preventScroll: true });
+
+    if (restoreFocus) {
+      (open ? back : show).focus({ preventScroll: true });
+    }
   }
 
   front.addEventListener("click", () => flip(true));
-  hide.addEventListener("click", () => flip(false));
-  back.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") flip(false);
+  back.addEventListener("click", () => flip(false));
+  show.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+    flip(true);
+  });
+  back.addEventListener("keydown", event => {
+    if (["Escape", "Enter", " "].includes(event.key)) {
+      event.preventDefault();
+      flip(false);
+    }
   });
 }
 
 const experienceList = document.querySelector("#experiencias");
-const previous = document.querySelector("#previous-experience");
-const next = document.querySelector("#next-experience");
+let isDraggingExperience = false;
+let draggedExperience = false;
+let experienceStartX = 0;
+let experienceStartScroll = 0;
 
-function updateExperienceControls() {
-  previous.disabled = experienceList.scrollLeft <= 2;
-  next.disabled = experienceList.scrollLeft >= experienceList.scrollWidth - experienceList.clientWidth - 2;
+function stopExperienceDrag() {
+  if (!isDraggingExperience) return;
+  isDraggingExperience = false;
+  experienceList.classList.remove("is-dragging");
 }
 
-function moveExperience(forward) {
-  const origin = experienceList.firstElementChild.offsetLeft;
-  const positions = [...experienceList.children].map(card => card.offsetLeft - origin);
-  const current = experienceList.scrollLeft;
-  const target = forward
-    ? positions.find(position => position > current + 2)
-    : positions.findLast(position => position < current - 2);
-  experienceList.scrollTo({ left: target ?? (forward ? experienceList.scrollWidth : 0) });
-}
+experienceList.addEventListener("pointerdown", event => {
+  if (event.pointerType === "touch" || event.button !== 0) return;
+  isDraggingExperience = true;
+  draggedExperience = false;
+  experienceStartX = event.clientX;
+  experienceStartScroll = experienceList.scrollLeft;
+  experienceList.classList.add("is-dragging");
+  experienceList.setPointerCapture?.(event.pointerId);
+});
 
-previous.addEventListener("click", () => moveExperience(false));
-next.addEventListener("click", () => moveExperience(true));
-experienceList.addEventListener("scroll", updateExperienceControls, { passive: true });
-new ResizeObserver(updateExperienceControls).observe(experienceList);
-updateExperienceControls();
+experienceList.addEventListener("pointermove", event => {
+  if (!isDraggingExperience) return;
+  const delta = event.clientX - experienceStartX;
+  if (Math.abs(delta) > 3) draggedExperience = true;
+  experienceList.scrollLeft = experienceStartScroll - delta;
+});
+
+["pointerup", "pointercancel", "lostpointercapture", "mouseleave"].forEach(type => {
+  experienceList.addEventListener(type, stopExperienceDrag);
+});
+
+experienceList.addEventListener("click", event => {
+  if (!draggedExperience) return;
+  event.preventDefault();
+  event.stopPropagation();
+  draggedExperience = false;
+}, true);
+
+experienceList.addEventListener("wheel", event => {
+  if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+  experienceList.scrollLeft += event.deltaY;
+  event.preventDefault();
+}, { passive: false });
 
 const contactDialog = document.querySelector("#contact-dialog");
 const contactButton = document.querySelector("#open-contact");
@@ -78,3 +166,25 @@ contactDialog.addEventListener("click", (event) => {
     contactDialog.close();
   }
 });
+
+// Entrada suave e progressiva: sem dependência externa e sem esconder conteúdo
+// de usuários que preferem movimento reduzido.
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+if ("IntersectionObserver" in window && !reducedMotion.matches) {
+  const targets = document.querySelectorAll(
+    ".availability, .hero-copy, .portrait, .area, .page-section > .eyebrow, .page-section > .section-title, .page-section > .section-intro, .project, .about-copy, .about-photo, .about-experiences, .contact"
+  );
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .08, rootMargin: "0px 0px 24px 0px" });
+  targets.forEach((element, index) => {
+    element.classList.add("reveal");
+    if (index < 3) element.style.setProperty("--reveal-delay", `${index * 70}ms`);
+    revealObserver.observe(element);
+  });
+}

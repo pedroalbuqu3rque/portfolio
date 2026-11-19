@@ -13,14 +13,21 @@
   <header class="sticky-header">
     <div class="container site-header">
       <a class="logo" href="#inicio" aria-label="Pedro Albuquerque — início">PA<span>.</span></a>
-      <nav aria-label="Navegação principal">
-        <a href="#inicio" aria-current="location">Início</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="site-navigation">
+        <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span>
+      </button>
+      <nav id="site-navigation" aria-label="Navegação principal">
+        <div class="nav-links">
+          <a href="#inicio" aria-current="location"><span>Início</span><span class="nav-index" aria-hidden="true">01</span></a>
+          <a href="#projetos"><span>Projetos</span><span class="nav-index" aria-hidden="true">02</span></a>
+          <a href="#sobre"><span>Sobre</span><span class="nav-index" aria-hidden="true">03</span></a>
+          <a href="#contato"><span>Contato</span><span class="nav-index" aria-hidden="true">04</span></a>
+        </div>
+        <p class="mobile-nav-meta">CUSTOMER SUCCESS <span aria-hidden="true">/</span> QUALITY ASSURANCE</p>
       </nav>
     </div>
   </header>
+  <div class="menu-backdrop" id="menu-backdrop" aria-hidden="true"></div>
   <main id="conteudo" class="container">
     <section id="inicio" class="hero" aria-labelledby="hero-title">
       <p class="availability"><img src="assets/status.svg" alt="">Aberto a estágio e vagas júnior</p>
@@ -50,8 +57,7 @@
           <div class="area-back panel" id="tools-CS" inert>
             <div class="tools-heading">
               <h3>Ferramentas · CS</h3>
-              <button class="text-button" type="button" aria-label="Voltar para Customer Success (CS)">↶ Voltar</button>
-            </div>
+                          </div>
             <ul class="tools"><li>HubSpot CRM</li><li>Salesforce</li><li>Intercom</li><li>Zendesk</li><li>Gainsight</li><li>Jira</li></ul>
           </div>
         </div>
@@ -67,9 +73,8 @@
           <div class="area-back panel" id="tools-QA" inert>
             <div class="tools-heading">
               <h3>Ferramentas · QA</h3>
-              <button class="text-button" type="button" aria-label="Voltar para Quality Assurance (QA)">↶ Voltar</button>
-            </div>
-            <ul class="tools"><li>Jira</li><li>TestRail</li><li>Postman</li><li>Playwright</li><li>Cypress</li><li>Selenium</li></ul>
+                          </div>
+            <ul class="tools"><li>Qase</li><li>TestRail</li><li>Postman</li><li>Playwright</li><li>Cypress</li><li>Selenium</li></ul>
           </div>
         </div>
       </article>
@@ -116,10 +121,6 @@
       <div class="about-experiences">
         <div class="experience-heading">
           <h3 id="experience-title">Experiências</h3>
-          <div class="experience-controls">
-            <button id="previous-experience" type="button" aria-label="Experiência anterior" aria-controls="experiencias" disabled>←</button>
-            <button id="next-experience" type="button" aria-label="Próxima experiência" aria-controls="experiencias">→</button>
-          </div>
         </div>
         <ul class="experience-list" id="experiencias" aria-labelledby="experience-title" tabindex="0">
 
