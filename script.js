@@ -188,3 +188,30 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
     revealObserver.observe(element);
   });
 }
+
+// Faz o download efetivo do currículo sem abrir uma aba com o visualizador de PDF.
+// Atributo download no HTML é mantido como fallback quando JavaScript não estiver ativo.
+for (const link of document.querySelectorAll("[data-download-cv]")) {
+  link.addEventListener("click", async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(link.href, { credentials: "same-origin" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const type = response.headers.get("content-type") || "";
+      if (!type.toLowerCase().includes("pdf")) throw new Error("O arquivo retornado não é um PDF.");
+
+      const pdf = await response.blob();
+      const objectUrl = URL.createObjectURL(pdf);
+      const temporaryLink = document.createElement("a");
+      temporaryLink.href = objectUrl;
+      temporaryLink.download = link.download || "Pedro-Albuquerque-Curriculo.pdf";
+      document.body.append(temporaryLink);
+      temporaryLink.click();
+      temporaryLink.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
+    } catch (error) {
+      console.error("Não foi possível baixar o currículo:", error);
+      window.alert("Não foi possível baixar o currículo. Verifique se o PDF está disponível e tente novamente.");
+    }
+  });
+}
