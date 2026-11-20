@@ -3,25 +3,161 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Automatizar os principais fluxos de uma aplicação web, executando testes e documentando os resultados.">
-  <meta name="theme-color" content="#080808">
-  <title>Test Automation com Playwright | Pedro Albuquerque</title>
+  <meta name="description" content="Estudo de caso de Quality Assurance do URBAN: estratégia orientada a risco, rastreabilidade, execução no Qase, retestes, regressão e automação com Playwright.">
+  <meta name="theme-color" content="#090b10">
+  <title>URBAN · Quality Assurance | Pedro Albuquerque</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="109x109" href="../assets/favicon.png">
   <link rel="apple-touch-icon" href="../assets/favicon.png">
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
-  <header class="container site-header">
-    <a class="logo" href="../index.html" aria-label="Pedro Albuquerque — início">PA<span>.</span></a>
-    <a class="text-button" href="../index.html#projetos">Voltar aos projetos</a>
+<body class="case-page">
+  <header class="case-header">
+    <div class="container case-nav">
+      <a class="logo" href="../index.html" aria-label="Pedro Albuquerque — início">PA<span>.</span></a>
+      <a class="text-button" href="../index.html#projetos">← Voltar aos projetos</a>
+    </div>
   </header>
-  <main class="container case-study">
-    <p class="eyebrow">Estudo demonstrativo</p>
-    <h1>Test Automation com Playwright</h1>
-    <p class="case-intro">Automatizar os principais fluxos de uma aplicação web, executando testes e documentando os resultados.</p>
-    <section><h2>Objetivo</h2><p>Montar uma cobertura inicial de regressão para um fluxo web.</p></section>
-    <section><h2>Abordagem</h2><p>Começar por login válido, edição de perfil e confirmação da alteração. Usar locators por papel ou rótulo e isolar os dados de cada cenário.</p></section>
-    <section><h2>Acompanhamento</h2><p>Registrar o resultado da execução e preservar traces em caso de falha. Reproduzir localmente a falha antes de classificá-la como regressão.</p></section>
+
+  <main>
+    <section class="container qa-hero" aria-labelledby="qa-title">
+      <div class="qa-hero-copy">
+        <p class="eyebrow">URBAN · Quality Assurance</p>
+        <h1 id="qa-title">QA orientado a<br><span>risco e evidência.</span></h1>
+        <p class="qa-lead">Estruturei a validação do URBAN a partir das regras de negócio e dos fluxos mais críticos da operação. O trabalho envolveu análise de requisitos, desenho de cenários, rastreabilidade, execução no Qase, investigação de divergências, retestes, regressão e automação com Playwright.</p>
+        <div class="qa-actions">
+          <a class="button button-light" href="https://urban-gestao-imobiliaria.vercel.app" target="_blank" rel="noopener noreferrer">Acessar URBAN <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="https://github.com/pedroalbuqu3rque" target="_blank" rel="noopener noreferrer">Ver GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <figure class="qa-hero-shot">
+        <img src="../assets/urban-qa/dashboard-mobile-viewport.png" alt="Dashboard do URBAN validado em viewport mobile" width="350" height="758">
+        <figcaption><span>Validação responsiva</span> viewport de referência 390 × 844</figcaption>
+      </figure>
+    </section>
+
+    <section class="qa-metrics" aria-label="Resumo da execução de QA">
+      <div class="container qa-metrics-grid">
+        <div class="qa-metric"><strong>24</strong><span>casos executados na baseline</span></div>
+        <div class="qa-metric"><strong>5</strong><span>pendências reexecutadas</span></div>
+        <div class="qa-metric"><strong>3</strong><span>pendências resolvidas no reteste</span></div>
+        <div class="qa-metric"><strong>2</strong><span>bloqueios preservados por pré-condição</span></div>
+      </div>
+    </section>
+
+    <section class="container qa-section qa-split">
+      <div class="qa-section-heading">
+        <p class="eyebrow">Estratégia</p>
+        <h2>Qualidade começou antes da execução.</h2>
+      </div>
+      <div class="qa-section-content">
+        <p class="qa-body-lg">O objetivo não foi apenas validar telas, mas reduzir risco nos pontos em que uma inconsistência comprometeria a operação imobiliária: persistência de dados, vínculos entre entidades, progressão da negociação, contratos, autorização por papel e isolamento entre imobiliárias.</p>
+        <div class="qa-tags" aria-label="Competências aplicadas">
+          <span>Risk-based testing</span><span>Test design</span><span>Rastreabilidade</span><span>Qase</span><span>Permissões</span><span>Multi-tenant</span><span>Mobile</span><span>Regressão</span>
+        </div>
+        <ol class="qa-process">
+          <li><span>[1]</span><div><strong>Análise de requisitos</strong><p>Regras de negócio e áreas críticas convertidas em critérios observáveis e verificáveis.</p></div></li>
+          <li><span>[2]</span><div><strong>Desenho dos testes</strong><p>Cenários positivos, negativos, transições de estado, duplicidade, autorização e persistência.</p></div></li>
+          <li><span>[3]</span><div><strong>Execução e evidências</strong><p>Resultados registrados no Qase com contexto suficiente para reprodução e acompanhamento.</p></div></li>
+          <li><span>[4]</span><div><strong>Investigação</strong><p>Divergências analisadas antes da classificação como defeito, reduzindo falso positivo e ruído.</p></div></li>
+          <li><span>[5]</span><div><strong>Reteste e regressão</strong><p>Pendências isoladas e reexecutadas; bloqueios mantidos quando a pré-condição não permitia uma validação confiável.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="qa-dark-section">
+      <div class="container qa-section qa-split">
+        <div class="qa-section-heading">
+          <p class="eyebrow">Cobertura</p>
+          <h2>Da autenticação à conclusão da venda.</h2>
+        </div>
+        <div class="qa-section-content">
+          <p class="qa-body-lg">A cobertura acompanha a jornada de negócio ponta a ponta e inclui regras transversais que expõem o produto a maior risco.</p>
+          <div class="qa-coverage">
+            <article><span>Acesso</span><strong>Login, erro, recuperação e configuração</strong><p>Risco: indisponibilidade de acesso ou sessão inconsistente.</p></article>
+            <article><span>Imóveis</span><strong>Cadastro, edição, busca, duplicidade e persistência</strong><p>Risco: informações incorretas ou registros duplicados.</p></article>
+            <article><span>Clientes</span><strong>Cadastro e vínculo com imóvel</strong><p>Risco: associação incorreta de interesse e histórico.</p></article>
+            <article><span>Negociações</span><strong>Vínculos e transição sequencial de etapas</strong><p>Risco: pipeline em estado inválido.</p></article>
+            <article><span>Contratos</span><strong>Consistência e vigência</strong><p>Risco: operação concluída com dados incorretos.</p></article>
+            <article><span>Equipe</span><strong>Convites e ações por papel</strong><p>Risco: acesso ou privilégio indevido.</p></article>
+            <article><span>Multiempresa</span><strong>Isolamento entre imobiliárias</strong><p>Risco: exposição cruzada de dados.</p></article>
+            <article><span>Interface</span><strong>Fluxos críticos em viewport mobile</strong><p>Risco: operação comprometida fora do desktop.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container qa-section qa-split">
+      <div class="qa-section-heading">
+        <p class="eyebrow">Execução</p>
+        <h2>Resultado é dado. Diagnóstico exige contexto.</h2>
+      </div>
+      <div class="qa-section-content">
+        <p class="qa-body-lg">A execução foi organizada para separar falha observada de defeito confirmado. Um caso com resultado <em>Failed</em> iniciou investigação; somente depois da reprodução e análise da regra o comportamento poderia ser tratado como bug.</p>
+        <div class="qa-callout">
+          <strong>Decisão de QA</strong>
+          <p>Casos sem massa de dados ou pré-condição confiável foram preservados como <b>Blocked</b>, em vez de forçar uma conclusão que não seria sustentada pela evidência.</p>
+        </div>
+        <div class="qa-result-list">
+          <div><span class="qa-status qa-pass">PASS</span><p>Fluxos validados dentro do comportamento esperado.</p></div>
+          <div><span class="qa-status qa-fail">FAIL</span><p>Divergência identificada e direcionada para investigação.</p></div>
+          <div><span class="qa-status qa-block">BLOCKED</span><p>Execução impedida por pré-condição ou massa de dados insuficiente.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container qa-evidence-section">
+      <div class="qa-evidence-heading">
+        <div><p class="eyebrow">Evidências</p><h2>Registro para reproduzir, comparar e decidir.</h2></div>
+        <p>As evidências foram usadas para documentar o estado da aplicação, sustentar resultados e comparar comportamento entre execução e reteste.</p>
+      </div>
+      <div class="qa-gallery">
+        <figure class="qa-evidence qa-evidence-wide"><img src="../assets/urban-qa/rodada-1.png" alt="Execução da baseline de testes no Qase" loading="lazy"><figcaption><strong>Baseline de execução</strong><span>Visão consolidada da primeira execução dos cenários planejados.</span></figcaption></figure>
+        <figure class="qa-evidence"><img src="../assets/urban-qa/caso-cadastro.png" alt="Caso de teste de cadastro registrado no Qase" loading="lazy"><figcaption><strong>Caso de teste</strong><span>Pré-condições, passos e resultado esperado documentados.</span></figcaption></figure>
+        <figure class="qa-evidence"><img src="../assets/urban-qa/falha.png" alt="Evidência de uma divergência encontrada durante os testes" loading="lazy"><figcaption><strong>Divergência observada</strong><span>Falha registrada com evidência antes da investigação.</span></figcaption></figure>
+        <figure class="qa-evidence"><img src="../assets/urban-qa/rodada-2.png" alt="Reteste das pendências no Qase" loading="lazy"><figcaption><strong>Reteste direcionado</strong><span>Pendências isoladas e reexecutadas após análise.</span></figcaption></figure>
+        <figure class="qa-evidence"><img src="../assets/urban-qa/historico.png" alt="Histórico de execução de testes" loading="lazy"><figcaption><strong>Histórico</strong><span>Rastreabilidade entre execução, pendência e nova validação.</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="qa-dark-section">
+      <div class="container qa-section qa-split">
+        <div class="qa-section-heading">
+          <p class="eyebrow">Automação</p>
+          <h2>Automatizar o que precisa ser repetível.</h2>
+        </div>
+        <div class="qa-section-content">
+          <p class="qa-body-lg">A automação foi tratada como complemento da estratégia manual, priorizando verificações estáveis e determinísticas. Playwright foi utilizado para fluxos de aplicação, enquanto regras de domínio foram isoladas quando a validação podia acontecer sem depender da interface.</p>
+          <div class="qa-automation-grid">
+            <article><span>01</span><h3>Fluxos críticos</h3><p>Cenários recorrentes de maior valor para regressão automatizada.</p></article>
+            <article><span>02</span><h3>Locators estáveis</h3><p>Seletores orientados a papel, rótulo e comportamento observável.</p></article>
+            <article><span>03</span><h3>Falha investigável</h3><p>Execução preparada para preservar evidências úteis em caso de erro.</p></article>
+            <article><span>04</span><h3>Domínio isolado</h3><p>Regras determinísticas separadas da camada visual sempre que possível.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container qa-section qa-split qa-closing">
+      <div class="qa-section-heading">
+        <p class="eyebrow">Aprendizado</p>
+        <h2>QA como parte do produto, não como etapa final.</h2>
+      </div>
+      <div class="qa-section-content">
+        <p class="qa-body-lg">O principal resultado deste projeto foi consolidar uma abordagem de QA que conecta requisito, risco, execução e decisão. A qualidade deixa de ser apenas a busca por defeitos e passa a funcionar como uma camada de confiança sobre o comportamento do produto.</p>
+        <div class="qa-final-actions">
+          <a class="button button-light" href="https://urban-gestao-imobiliaria.vercel.app" target="_blank" rel="noopener noreferrer">Explorar o URBAN <span aria-hidden="true">↗</span></a>
+          <a class="text-button" href="../index.html#projetos">Ver outros projetos →</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="container site-footer qa-footer">
+    <strong>Pedro Albuquerque</strong>
+    <span>Customer Success · Quality Assurance</span>
+  </footer>
 </body>
 </html>
