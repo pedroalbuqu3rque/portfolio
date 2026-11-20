@@ -9,9 +9,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="109x109" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <script>document.documentElement.classList.add('intro-enabled');</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="intro-screen" id="intro-screen" aria-label="Pedro Albuquerque — carregando portfólio" role="status">
+    <span class="intro-screen__name">PEDRO ALBUQUERQUE<span class="intro-screen__dot">.</span></span>
+    <span class="intro-screen__line" aria-hidden="true"></span>
+  </div>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="sticky-header">
     <div class="container site-header">
@@ -83,34 +90,23 @@
       </article>
     </section>
     <section id="projetos" class="page-section" aria-labelledby="projects-title">
-      <p class="eyebrow">Projetos em destaque</p>
-      <h2 id="projects-title" class="section-title">Projetos e estudos de caso.</h2>
-      <p class="section-intro">Projetos práticos e estudos de caso em Customer Success e Quality Assurance, com foco na resolução de problemas, aplicação de ferramentas e desenvolvimento profissional.</p>
+      <p class="eyebrow">Estudos de caso</p>
+      <h2 id="projects-title" class="section-title">Projetos selecionados.</h2>
+      <p class="section-intro">Dois estudos de caso desenvolvidos a partir da URBAN, uma plataforma de gestão imobiliária. Duas perspectivas complementares sobre a experiência do cliente e a qualidade do produto digital.</p>
       <div class="two-columns projects">
-
-        <article class="project panel">
-          <div class="project-heading"><h3>Customer Health Score &amp; Churn Risk</h3></div>
-          <p>Identifica clientes que apresentam sinais de insatisfação ou risco de cancelamento e propõe ações preventivas.</p>
-          <ul class="tags"><li>Análise de dados</li><li>Indicadores</li><li>Retenção e Churn</li></ul>
-          <a class="text-button" href="estudos/health-score.html" aria-label="Ver estudo de caso — Customer Health Score &amp; Churn Risk">Ver estudo de caso →</a>
+        <article class="project panel" aria-labelledby="project-cs-title">
+          <div class="project-meta"><span class="project-category">Customer Success</span><span>URBAN · SaaS B2B</span></div>
+          <div class="project-heading"><h3 id="project-cs-title">Implantação, Adoção e Sucesso do Cliente</h3></div>
+          <p>Estudo de caso sobre a estruturação da jornada pós-venda de uma plataforma de gestão imobiliária, com foco em onboarding, ativação, acompanhamento de indicadores e estratégias de retenção.</p>
+          <ul class="tags" aria-label="Temas do estudo"><li>Onboarding</li><li>Jornada do Cliente</li><li>Health Score</li><li>Retenção</li></ul>
+          <a class="text-button" href="estudos/onboarding.html" aria-label="Explorar estudo de caso de Customer Success da URBAN">Explorar projeto →</a>
         </article>
-        <article class="project panel">
-          <div class="project-heading"><h3>Manual Testing &amp; Bug Reporting</h3><img src="assets/github.png" width="24" height="24" alt=""></div>
-          <p>Testar uma aplicação real de demonstração, identificar defeitos e produzir documentação profissional de QA.</p>
-          <ul class="tags"><li>Testes</li><li>Bug Reports</li><li>Qualidade</li></ul>
-          <a class="text-button" href="estudos/testes-manuais.html" aria-label="Ver estudo de caso — Manual Testing &amp; Bug Reporting">Ver estudo de caso →</a>
-        </article>
-        <article class="project panel">
-          <div class="project-heading"><h3><b>URBAN</b> - Onboarding e ativação de imobiliárias</h3></div>
-          <p>Cria uma jornada de integração de novos clientes, com etapas, comunicação, acompanhamento e indicadores de sucesso.</p>
-          <ul class="tags"><li>Onboarding</li><li>Implantação</li><li>Ativação</li></ul>
-          <a class="text-button" href="estudos/onboarding.html" aria-label="Ver estudo de caso — Customer Onboarding &amp; Retention">Ver estudo de caso →</a>
-        </article>
-        <article class="project panel">
-          <div class="project-heading"><h3><b>URBAN</b> - Testes funcionais e automação com Playwright</h3><img src="assets/github.png" width="24" height="24" alt=""></div>
-          <p>Automatizar os principais fluxos de uma aplicação web, executando testes e documentando os resultados.</p>
-          <ul class="tags"><li></li>Qase<li>Playwright</li><li>Automação</li></ul>
-          <a class="text-button" href="estudos/automacao.html" aria-label="Ver estudo de caso — Test Automation com Playwright">Ver estudo de caso →</a>
+        <article class="project panel" aria-labelledby="project-qa-title">
+          <div class="project-meta"><span class="project-category">Quality Assurance</span><span>URBAN · Aplicação Web</span></div>
+          <div class="project-heading"><h3 id="project-qa-title">Estratégia de Testes e Qualidade de Software</h3></div>
+          <p>Estudo de caso sobre planejamento e execução de testes em uma aplicação de gestão imobiliária, com foco em análise de riscos, identificação de defeitos, rastreabilidade e automação de fluxos críticos.</p>
+          <ul class="tags" aria-label="Temas do estudo"><li>Testes Funcionais</li><li>Qase</li><li>Bug Tracking</li><li>Playwright</li></ul>
+          <a class="text-button" href="estudos/automacao.html" aria-label="Explorar estudo de caso de Quality Assurance da URBAN">Explorar projeto →</a>
         </article>
       </div>
     </section>
@@ -128,42 +124,42 @@
         <ul class="experience-list" id="experiencias" aria-labelledby="experience-title" tabindex="0">
 
           <li class="experience panel" style="--card-width: 280px">
-            <div><span>Desde set/2026</span><span aria-hidden="true">01</span></div>
+            <div><span>Desde set/2026</span></div>
             <h4>Projetos em Tecnologia</h4>
             <p>Level 5 Jr.</p>
           </li>
           <li class="experience panel" style="--card-width: 344px">
-            <div><span>Desde set/2026</span><span aria-hidden="true">02</span></div>
+            <div><span>Desde set/2026</span></div>
             <h4>Desenvolvimento de Serious Game</h4>
             <p>Universidade Federal de Goiás</p>
           </li>
           <li class="experience panel" style="--card-width: 336px">
-            <div><span>Fev/2026 – jul/2026</span><span aria-hidden="true">03</span></div>
+            <div><span>Fev/2026 – jul/2026</span></div>
             <h4>Professor de Inteligência Artificial</h4>
             <p>Grupo Salta Educação</p>
           </li>
           <li class="experience panel" style="--card-width: 280px">
-            <div><span>Jan/2026 – jul/2026</span><span aria-hidden="true">04</span></div>
+            <div><span>Jan/2026 – jul/2026</span></div>
             <h4>Diagramador</h4>
             <p>Grupo Salta Educação</p>
           </li>
           <li class="experience panel" style="--card-width: 280px">
-            <div><span>Maio/2025 – dez/2025</span><span aria-hidden="true">05</span></div>
+            <div><span>Maio/2025 – dez/2025</span></div>
             <h4>Apoio Pedagógico</h4>
             <p>Grupo Salta Educação</p>
           </li>
           <li class="experience panel" style="--card-width: 280px">
-            <div><span>Mar/2024 – set/2025</span><span aria-hidden="true">06</span></div>
+            <div><span>Mar/2024 – set/2025</span></div>
             <h4>Membro e Diretor</h4>
             <p>Gaia Consultoria Ambiental Jr.</p>
           </li>
           <li class="experience panel" style="--card-width: 328px">
-            <div><span></span><span aria-hidden="true">07</span></div>
+            <div><span>Jan/2024 – Jun/2024</span></div>
             <h4>Estágio em Geoprocessamento</h4>
             <p>Laboratório de Geoprocessamento – LAPIG</p>
           </li>
           <li class="experience panel" style="--card-width: 280px">
-            <div><span>Maio/2023 – ago/2024</span><span aria-hidden="true">08</span></div>
+            <div><span>Maio/2023 – ago/2024</span></div>
             <h4>Iniciação à Docência</h4>
             <p>Universidade Federal de Goiás</p>
           </li>

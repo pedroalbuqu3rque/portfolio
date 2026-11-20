@@ -1,3 +1,18 @@
+// Abertura de marca na primeira tela; respeita acessibilidade e não depende da rede.
+const intro = document.querySelector('#intro-screen');
+const prefersLessMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (intro) {
+  if (prefersLessMotion) {
+    document.documentElement.classList.add('intro-finished');
+    intro.remove();
+  } else {
+    window.setTimeout(() => {
+      document.documentElement.classList.add('intro-finished');
+      window.setTimeout(() => intro.remove(), 750);
+    }, 2150);
+  }
+}
+
 // Se o JavaScript não carregar, os links continuam acessíveis sem menu expansível.
 document.documentElement.classList.add("js");
 
