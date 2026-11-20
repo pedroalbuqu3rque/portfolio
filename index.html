@@ -40,15 +40,15 @@
   <div class="menu-backdrop" id="menu-backdrop" aria-hidden="true"></div>
   <main id="conteudo" class="container">
     <section id="inicio" class="hero" aria-labelledby="hero-title">
-      <p class="availability"><img src="assets/status.svg" alt="">Aberto a estágio e vagas júnior</p>
       <div class="hero-copy">
-        <p class="eyebrow hero-name">Pedro Albuquerque</p>
-        <h1 id="hero-title">Customer Success <span>&amp;</span><br>Quality Assurance.</h1>
-        <p class="hero-description">Tecnologia, relacionamento e qualidade de produtos digitais.</p>
+        <h1 id="hero-title">Pedro<br>Albuquerque<span>.</span></h1>
+        <p class="hero-role">Customer Success &amp; Quality Assurance</p>
+        <p class="hero-description">Estudo a jornada de quem usa produtos digitais e transformo dificuldades de uso em cenários de teste.</p>
         <div class="actions">
-          <a class="button button-light" href="#projetos">Ver projetos</a>
-          <a class="button button-outline" href="assets/curriculo-pedro-albuquerque.pdf" download="Pedro-Albuquerque-Curriculo.pdf" data-download-cv>Currículo</a>
+          <a class="button button-light" href="#projetos">Ver projetos <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="assets/curriculo-pedro-albuquerque.pdf" download="Pedro-Albuquerque-Curriculo.pdf" data-download-cv>Baixar currículo <span aria-hidden="true">↓</span></a>
         </div>
+        <p class="hero-status">Disponível para estágio e vagas júnior</p>
       </div>
       <div class="portrait">
         <div class="portrait-crop"><img src="assets/retrato.jpg" alt="Retrato de Pedro Albuquerque" width="1080" height="1080"></div>
@@ -92,7 +92,15 @@
     <section id="projetos" class="page-section" aria-labelledby="projects-title">
       <p class="eyebrow">Estudos de caso</p>
       <h2 id="projects-title" class="section-title">Projetos selecionados.</h2>
-      <p class="section-intro">Dois estudos de caso desenvolvidos a partir da URBAN, uma plataforma de gestão imobiliária. Duas perspectivas complementares sobre a experiência do cliente e a qualidade do produto digital.</p>
+      <article class="urban-feature" aria-labelledby="urban-title">
+        <div>
+          <p class="eyebrow">Projeto em destaque</p>
+          <h3 id="urban-title">URBAN</h3>
+          <p class="urban-subtitle">Gestão imobiliária</p>
+          <p class="urban-summary">Do onboarding aos testes funcionais, acompanhe os dois estudos de caso da plataforma.</p>
+        </div>
+        <img src="assets/urban-dashboard.png" alt="Dashboard da plataforma de gestão imobiliária URBAN" width="1422" height="800" loading="lazy">
+      </article>
       <div class="two-columns projects">
         <article class="project panel" aria-labelledby="project-cs-title">
           <div class="project-meta"><span class="project-category">Customer Success</span><span>URBAN · SaaS B2B</span></div>
