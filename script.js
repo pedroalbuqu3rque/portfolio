@@ -1,7 +1,7 @@
 // Abertura de marca na primeira tela; respeita acessibilidade e não depende da rede.
 const intro = document.querySelector('#intro-screen');
 const prefersLessMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (intro) {
+if (intro && document.documentElement.classList.contains("intro-enabled")) {
   if (prefersLessMotion) {
     document.documentElement.classList.add('intro-finished');
     intro.remove();
@@ -11,6 +11,8 @@ if (intro) {
       window.setTimeout(() => intro.remove(), 750);
     }, 2150);
   }
+} else if (intro) {
+  intro.remove();
 }
 
 // Se o JavaScript não carregar, os links continuam acessíveis sem menu expansível.
@@ -212,10 +214,10 @@ for (const link of document.querySelectorAll("[data-download-cv]")) {
     try {
       const response = await fetch(link.href, { credentials: "same-origin" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const type = response.headers.get("content-type") || "";
-      if (!type.toLowerCase().includes("pdf")) throw new Error("O arquivo retornado não é um PDF.");
-
       const pdf = await response.blob();
+      const header = new Uint8Array(await pdf.slice(0, 5).arrayBuffer());
+      const signature = String.fromCharCode(...header);
+      if (signature !== "%PDF-") throw new Error("O arquivo retornado não é um PDF.");
       const objectUrl = URL.createObjectURL(pdf);
       const temporaryLink = document.createElement("a");
       temporaryLink.href = objectUrl;

@@ -1,6 +1,6 @@
 # Portfólio | Pedro Albuquerque
 
-Portfólio profissional com foco em Customer Success e Quality Assurance. A Home apresenta posicionamento, ferramentas, trajetória e os estudos de caso do URBAN, uma plataforma de gestão imobiliária usada como contexto para demonstrar práticas de CS e QA.
+Portfólio profissional com foco em Customer Success e Quality Assurance. A Home apresenta posicionamento, práticas e ferramentas evidenciadas nos estudos, trajetória e os estudos de caso do URBAN, uma plataforma de gestão imobiliária usada como contexto para demonstrar práticas de CS e QA.
 
 O site é construído em HTML, CSS e JavaScript, sem framework.
 
@@ -40,3 +40,7 @@ A Home possui navegação adaptada para telas menores, suporte a teclado, `focus
 
 - Layout do portfólio no Figma: https://www.figma.com/design/bODBkXVQK87jjMoHdHmOBZ/Portf%C3%B3lio---CSQA?node-id=15-2
 - Licença da fonte Inter: `assets/OFL-Inter.txt`
+
+## Critério editorial
+
+Na seção de áreas de atuação, as práticas de CS e os recursos de QA foram escolhidos para corresponder aos estudos de caso publicados. Não são uma declaração de domínio de todas as plataformas do mercado. Os indicadores da NovaCasa Imóveis são explicitamente simulados no estudo de CS.

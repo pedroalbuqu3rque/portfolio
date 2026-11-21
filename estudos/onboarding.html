@@ -3,28 +3,234 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cria uma jornada de integração de novos clientes, com etapas, comunicação, acompanhamento e indicadores de sucesso.">
-  <meta name="theme-color" content="#080808">
-  <title>Customer Onboarding &amp; Retention | Pedro Albuquerque</title>
+  <meta name="description" content="Case simulado de Customer Success aplicado ao URBAN: diagnóstico, onboarding, adoção, Health Score, gestão de risco e evolução da conta.">
+  <meta name="theme-color" content="#090b10">
+  <title>URBAN · Customer Success | Pedro Albuquerque</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="109x109" href="../assets/favicon.png">
   <link rel="apple-touch-icon" href="../assets/favicon.png">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="customer-success.css">
 </head>
-<body>
-  <header class="container site-header">
-    <a class="logo" href="../index.html" aria-label="Pedro Albuquerque — início">PA<span>.</span></a>
-    <a class="text-button" href="../index.html#projetos">Voltar aos projetos</a>
+<body class="case-page cs-page">
+  <header class="case-header">
+    <div class="container case-nav">
+      <a class="logo" href="../index.html" aria-label="Pedro Albuquerque — início">PA<span>.</span></a>
+      <a class="text-button" href="../index.html#projetos">← Voltar aos projetos</a>
+    </div>
   </header>
-  <main class="container case-study">
-    <p class="eyebrow">Estudo demonstrativo</p>
-    <h1>Customer Onboarding &amp; Retention</h1>
-    <p class="case-intro">Cria uma jornada de integração de novos clientes, com etapas, comunicação, acompanhamento e indicadores de sucesso.</p>
-    <section><h2>Objetivo</h2><p>Desenhar os primeiros 30 dias de integração para um produto digital.</p></section>
-    <section><h2>Abordagem</h2><p>Alinhar o objetivo na primeira reunião, definir um marco inicial de ativação e agendar uma revisão na segunda semana. Se o marco atrasar, confirmar o impedimento e ajustar o plano com o cliente.</p></section>
-    <section><h2>Acompanhamento</h2><p>Acompanhar tempo até a ativação e proporção de contas que completam o marco. Usar a revisão de 30 dias para decidir o próximo passo com cada conta.</p></section>
+
+  <main>
+    <section class="container cs-hero" aria-labelledby="cs-title">
+      <div class="cs-hero-copy">
+        <p class="eyebrow">URBAN · Customer Success</p>
+        <h1 id="cs-title">Adoção que vira<br><span>valor percebido.</span></h1>
+        <p class="cs-lead">Estruturei um case simulado de Customer Success sobre o URBAN, acompanhando uma conta desde o diagnóstico até a adoção recorrente. O trabalho conecta onboarding, marcos de sucesso, Health Score, sinais de risco e ações orientadas ao resultado do cliente.</p>
+        <div class="cs-actions">
+          <a class="button button-light" href="https://urban-gestao-imobiliaria.vercel.app" target="_blank" rel="noopener noreferrer">Acessar URBAN <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="https://github.com/pedroalbuqu3rque/urban-gestao-imobiliaria" target="_blank" rel="noopener noreferrer">Repositório URBAN <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="cs-simulation-note"><span>Case simulado de portfólio</span> cliente, interações e indicadores foram construídos para demonstrar raciocínio e práticas de Customer Success; o produto URBAN é o contexto do estudo.</p>
+      </div>
+
+      <aside class="cs-account-card" aria-label="Resumo da conta NovaCasa Imóveis">
+        <div class="cs-account-top">
+          <div><span class="cs-account-label">Conta acompanhada</span><strong>NovaCasa Imóveis</strong></div>
+          <span class="cs-health-pill">Saudável</span>
+        </div>
+        <div class="cs-score-row">
+          <div class="cs-score-ring" aria-label="Health Score 82 de 100"><span>82</span><small>/100</small></div>
+          <div class="cs-score-copy"><span>Health Score</span><strong>Boa adoção com um ponto de atenção.</strong><p>O uso recorrente está consolidado; o financeiro ainda mantém um processo paralelo.</p></div>
+        </div>
+        <div class="cs-account-stats">
+          <div><strong>3</strong><span>usuários ativos</span></div>
+          <div><strong>4</strong><span>fluxos críticos</span></div>
+          <div><strong>Baixo</strong><span>risco de churn</span></div>
+        </div>
+        <div class="cs-next-action"><span>Próxima ação</span><p>Mapear as consultas ainda feitas na planilha e orientar o fluxo equivalente no URBAN.</p></div>
+      </aside>
+    </section>
+
+    <section class="cs-metrics" aria-label="Resumo do case de Customer Success">
+      <div class="container cs-metrics-grid">
+        <div class="cs-metric"><strong>82/100</strong><span>Health Score final</span></div>
+        <div class="cs-metric"><strong>4</strong><span>fluxos prioritários ativados</span></div>
+        <div class="cs-metric"><strong>3</strong><span>usuários ativos na conta</span></div>
+        <div class="cs-metric"><strong>Baixo</strong><span>risco após adoção</span></div>
+      </div>
+    </section>
+
+    <section class="container cs-section cs-split">
+      <div class="cs-section-heading">
+        <p class="eyebrow">Diagnóstico</p>
+        <h2>Sucesso começa pelo resultado que o cliente quer alcançar.</h2>
+      </div>
+      <div class="cs-section-content">
+        <p class="cs-body-lg">A NovaCasa Imóveis representa uma conta B2B que chega ao URBAN com informações distribuídas entre planilhas, mensagens e arquivos separados. Antes de pensar em treinamento, o primeiro passo foi transformar essas dores em objetivos verificáveis.</p>
+        <div class="cs-tags" aria-label="Competências aplicadas">
+          <span>Onboarding</span><span>Implantação</span><span>Adoção</span><span>Health Score</span><span>Gestão de risco</span><span>Retenção</span><span>Playbooks</span><span>Expansão</span>
+        </div>
+        <div class="cs-objectives">
+          <article><span>[1]</span><div><strong>Centralizar a operação</strong><p>Imóveis e contratos deveriam deixar de depender de controles fragmentados.</p></div></article>
+          <article><span>[2]</span><div><strong>Reduzir controles paralelos</strong><p>O URBAN precisava se tornar a principal fonte de consulta da equipe.</p></div></article>
+          <article><span>[3]</span><div><strong>Aumentar autonomia</strong><p>Mais de uma pessoa deveria conseguir localizar informações sem depender de um único responsável.</p></div></article>
+          <article><span>[4]</span><div><strong>Gerar valor recorrente</strong><p>O sucesso seria medido pelo comportamento de uso, e não apenas pelo término do onboarding.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-dark-section">
+      <div class="container cs-section cs-split">
+        <div class="cs-section-heading">
+          <p class="eyebrow">Onboarding</p>
+          <h2>Da configuração ao primeiro valor.</h2>
+        </div>
+        <div class="cs-section-content">
+          <p class="cs-body-lg">O onboarding foi estruturado em etapas progressivas para ativar primeiro os fluxos essenciais e evitar uma implantação centrada apenas em funcionalidades.</p>
+          <ol class="cs-journey">
+            <li><span>01</span><div><strong>Kickoff &amp; diagnóstico</strong><p>Contexto, responsáveis, riscos e critérios de sucesso alinhados.</p></div><small>Resultado: objetivo compartilhado</small></li>
+            <li><span>02</span><div><strong>Preparação da base</strong><p>Organização de usuários, imóveis, contratos e padrão de cadastro.</p></div><small>Resultado: prontidão operacional</small></li>
+            <li><span>03</span><div><strong>Ativação</strong><p>Fluxos prioritários colocados em uso com tarefas reais da operação.</p></div><small>Resultado: primeiro valor</small></li>
+            <li><span>04</span><div><strong>Treinamento contextual</strong><p>Orientação focada nas rotinas que cada usuário precisava executar.</p></div><small>Resultado: autonomia</small></li>
+            <li><span>05</span><div><strong>Hypercare</strong><p>Acompanhamento próximo para identificar dúvidas, atritos e retorno a processos antigos.</p></div><small>Resultado: adoção inicial</small></li>
+            <li><span>06</span><div><strong>Sucesso contínuo</strong><p>Transição da implantação para acompanhamento por sinais de saúde e valor.</p></div><small>Resultado: uso recorrente</small></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="container cs-product-section" aria-labelledby="cs-product-title">
+      <div class="cs-product-heading">
+        <div>
+          <p class="eyebrow">Produto em contexto</p>
+          <h2 id="cs-product-title">Da necessidade do cliente à rotina no URBAN.</h2>
+        </div>
+        <p>Registros de uma operação demonstrativa da NovaCasa Imóveis no URBAN. As telas ilustram os fluxos considerados no estudo; os indicadores de adoção e Health Score são simulados para fins de portfólio.</p>
+      </div>
+      <div class="cs-product-gallery">
+        <figure class="cs-product-shot cs-product-shot-wide">
+          <a href="../assets/urban-cs/dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura do dashboard URBAN em tamanho original"><img src="../assets/urban-cs/dashboard.png" alt="Dashboard do URBAN com indicadores de imóveis, clientes, negociações, contratos e atividades da NovaCasa Imóveis" loading="lazy"></a>
+          <figcaption><span>01 / Visão operacional</span><strong>Dashboard e acompanhamento</strong><p>Uma visão integrada da operação para orientar reuniões de acompanhamento e identificar pontos que precisam de atenção.</p></figcaption>
+        </figure>
+        <figure class="cs-product-shot">
+          <a href="../assets/urban-cs/imoveis.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura da carteira de imóveis"><img src="../assets/urban-cs/imoveis.png" alt="Listagem de imóveis no URBAN com busca, modalidade, valores e situação de cada registro" loading="lazy"></a>
+          <figcaption><span>02 / Ativação</span><strong>Carteira de imóveis</strong><p>Organização e consulta dos cadastros como parte do primeiro valor entregue à equipe.</p></figcaption>
+        </figure>
+        <figure class="cs-product-shot">
+          <a href="../assets/urban-cs/equipe.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura da equipe"><img src="../assets/urban-cs/equipe.png" alt="Página de equipe do URBAN mostrando os três perfis ativos da NovaCasa Imóveis" loading="lazy"></a>
+          <figcaption><span>03 / Autonomia</span><strong>Equipe e responsabilidades</strong><p>Perfis e funções ajudam a planejar treinamentos contextualizados e a distribuição do conhecimento.</p></figcaption>
+        </figure>
+        <figure class="cs-product-shot cs-product-shot-wide">
+          <a href="../assets/urban-cs/negociacoes.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir captura do pipeline de negociações"><img src="../assets/urban-cs/negociacoes.png" alt="Quadro Kanban de negociações do URBAN dividido por prospecção, atendimento, proposta, negociação final e fechada" loading="lazy"></a>
+          <figcaption><span>04 / Adoção recorrente</span><strong>Pipeline de negociações</strong><p>Um fluxo central da rotina comercial que permite discutir uso frequente, continuidade do processo e necessidades de suporte.</p></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="container cs-section cs-split">
+      <div class="cs-section-heading">
+        <p class="eyebrow">Health Score</p>
+        <h2>Um sinal para priorizar. Não uma resposta automática.</h2>
+      </div>
+      <div class="cs-section-content">
+        <p class="cs-body-lg">O modelo combina sinais quantitativos e qualitativos. O score indica onde olhar; a decisão de CS continua dependendo do contexto da conta.</p>
+        <div class="cs-score-table" role="table" aria-label="Composição do Health Score">
+          <div class="cs-score-head" role="row"><span>Dimensão</span><span>Peso</span><span>Resultado</span><span>Leitura</span></div>
+          <div role="row"><strong>Adoção</strong><span>30</span><span>24</span><small>uso recorrente</small></div>
+          <div role="row"><strong>Implantação</strong><span>20</span><span>18</span><small>quase concluída</small></div>
+          <div role="row"><strong>Engajamento</strong><span>20</span><span>17</span><small>responsáveis ativos</small></div>
+          <div role="row"><strong>Valor percebido</strong><span>20</span><span>15</span><small>em consolidação</small></div>
+          <div role="row"><strong>Suporte &amp; risco</strong><span>10</span><span>8</span><small>sem bloqueios críticos</small></div>
+        </div>
+        <div class="cs-callout">
+          <strong>Decisão de CS</strong>
+          <p>Mesmo com Health Score saudável, a manutenção da planilha financeira foi preservada como ponto de atenção. A ação foi investigar a necessidade específica antes de classificá-la como resistência ou risco de churn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-dark-section">
+      <div class="container cs-section cs-split">
+        <div class="cs-section-heading">
+          <p class="eyebrow">Rastreabilidade</p>
+          <h2>Objetivo, sinal, risco e ação conectados.</h2>
+        </div>
+        <div class="cs-section-content">
+          <p class="cs-body-lg">Para evitar acompanhamento baseado em impressão, cada objetivo do cliente foi conectado a um comportamento observável e a uma ação proporcional de CS.</p>
+          <div class="cs-trace-grid">
+            <article><span>Objetivo</span><strong>Reduzir planilhas</strong><p>URBAN como fonte principal de consulta.</p></article>
+            <article><span>Sinal</span><strong>Uso paralelo continua</strong><p>Equipe financeira ainda atualiza uma planilha.</p></article>
+            <article><span>Hipótese</span><strong>Consulta rápida</strong><p>O processo antigo parece mais ágil em situações pontuais.</p></article>
+            <article><span>Ação</span><strong>Investigar antes de escalar</strong><p>Mapear a necessidade, orientar o fluxo e acompanhar mudança de comportamento.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container cs-section cs-split">
+      <div class="cs-section-heading">
+        <p class="eyebrow">Acompanhamento</p>
+        <h2>Interações registradas como decisões, não como atividade.</h2>
+      </div>
+      <div class="cs-section-content">
+        <div class="cs-timeline">
+          <article>
+            <div class="cs-time"><span>Semana 1</span><b>68</b></div>
+            <div><strong>Ativação confirmada</strong><p>Usuários-chave acessaram a plataforma e os fluxos de imóveis funcionaram sem bloqueios. Dúvidas se concentraram em contratos e o financeiro manteve a planilha paralela.</p><small>Ação: reforçar contratos e mapear uso externo.</small></div>
+          </article>
+          <article>
+            <div class="cs-time"><span>Semana 2</span><b>76</b></div>
+            <div><strong>Adoção em evolução</strong><p>Frequência de acesso aumentou e os principais fluxos permaneceram ativos. O comportamento financeiro começou a mudar, mas ainda exigia acompanhamento.</p><small>Ação: manter orientação e validar autonomia.</small></div>
+          </article>
+          <article>
+            <div class="cs-time"><span>Semana 3</span><b>82</b></div>
+            <div><strong>Conta saudável</strong><p>Consultas de contratos migraram para o URBAN, dúvidas diminuíram e a planilha financeira passou a ser atualizada com menor frequência.</p><small>Decisão: não acionar playbook de churn; transicionar para acompanhamento recorrente.</small></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container cs-evolution-section">
+      <div class="cs-evolution-heading">
+        <div><p class="eyebrow">Evolução da conta</p><h2>O resultado aparece na mudança de comportamento.</h2></div>
+        <p>A leitura final não depende de uma única métrica. Ela combina uso, autonomia, redução de controles paralelos e percepção de valor.</p>
+      </div>
+      <div class="cs-evolution-board">
+        <div class="cs-evolution-chart" aria-label="Evolução simulada do Health Score de 48 para 82">
+          <div class="cs-chart-head"><span>Health Score</span><strong>48 → 82</strong></div>
+          <div class="cs-bars">
+            <div><i style="--h:48%"></i><span>Início</span><small>48</small></div>
+            <div><i style="--h:68%"></i><span>S1</span><small>68</small></div>
+            <div><i style="--h:76%"></i><span>S2</span><small>76</small></div>
+            <div><i style="--h:82%"></i><span>S3</span><small>82</small></div>
+          </div>
+        </div>
+        <div class="cs-outcomes">
+          <article><span>Centralização</span><strong>Imóveis e contratos</strong><p>Informações essenciais passaram a ser consultadas no URBAN.</p></article>
+          <article><span>Autonomia</span><strong>3 usuários ativos</strong><p>Conhecimento distribuído entre mais pessoas da operação.</p></article>
+          <article><span>Valor</span><strong>Menos dependência</strong><p>Redução da necessidade de mensagens e arquivos separados.</p></article>
+          <article><span>Risco</span><strong>Baixo</strong><p>Ponto de atenção financeiro monitorado sem escalada prematura.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-dark-section cs-closing">
+      <div class="container cs-section cs-split">
+        <div class="cs-section-heading"><p class="eyebrow">Resultado</p><h2>CS como processo contínuo de decisão.</h2></div>
+        <div class="cs-section-content">
+          <p class="cs-body-lg">Na simulação, a conta evoluiu da implantação para uma situação de adoção recorrente e baixo risco. Mais importante que concluir um checklist foi verificar se o comportamento do cliente indicava que o produto estava ocupando um papel real na operação.</p>
+          <div class="cs-final-actions">
+            <a class="button button-light" href="https://urban-gestao-imobiliaria.vercel.app" target="_blank" rel="noopener noreferrer">Explorar URBAN <span aria-hidden="true">↗</span></a>
+            <a class="text-button" href="automacao.html">Ver estudo de QA →</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="container site-footer qa-footer"><strong>Pedro Albuquerque</strong><span>URBAN · Customer Success</span></footer>
 </body>
 </html>

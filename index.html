@@ -11,13 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="109x109" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/favicon.png">
-  <script>document.documentElement.classList.add('intro-enabled');</script>
+  <script>
+    // A abertura aparece somente na primeira visita neste navegador.
+    try {
+      if (!localStorage.getItem('pa-portfolio-intro-seen')) {
+        localStorage.setItem('pa-portfolio-intro-seen', '1');
+        document.documentElement.classList.add('intro-enabled');
+      }
+    } catch (error) {
+      // Sem armazenamento disponível, a navegação segue sem a animação.
+    }
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="intro-screen" id="intro-screen" aria-label="Pedro Albuquerque — carregando portfólio" role="status">
     <span class="intro-screen__name">PEDRO ALBUQUERQUE<span class="intro-screen__dot">.</span></span>
-    <span class="intro-screen__line" aria-hidden="true"></span>
   </div>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="sticky-header">
@@ -43,10 +52,10 @@
       <div class="hero-copy">
         <h1 id="hero-title">Pedro<br>Albuquerque<span>.</span></h1>
         <p class="hero-role">Customer Success &amp; Quality Assurance</p>
-        <p class="hero-description">Estudo a jornada de quem usa produtos digitais e transformo dificuldades de uso em cenários de teste.</p>
+        <p class="hero-description">Conecto experiência do cliente e qualidade de software para criar soluções mais simples, úteis e confiáveis.</p>
         <div class="actions">
-          <a class="button button-light" href="#projetos">Ver projetos <span aria-hidden="true">↗</span></a>
-          <a class="button button-outline" href="assets/curriculo-pedro-albuquerque.pdf" download="Pedro-Albuquerque-Curriculo.pdf" data-download-cv>Baixar currículo <span aria-hidden="true">↓</span></a>
+          <a class="button button-light" href="#projetos">Ver projetos</a>
+          <a class="button button-outline" href="assets/curriculo-pedro-albuquerque.pdf" download="Pedro-Albuquerque-Curriculo.pdf" data-download-cv>Currículo</a>
         </div>
         <p class="hero-status">Disponível para estágio e vagas júnior</p>
       </div>
@@ -62,13 +71,13 @@
             <img src="assets/customer-success.png" alt="" width="32" height="32">
             <h2>Customer Success (CS)</h2>
             <p>Construção de relacionamentos, acompanhamento da jornada e geração de valor.</p>
-            <button class="text-button" type="button" aria-label="Ver ferramentas de Customer Success (CS)" aria-controls="tools-CS" aria-expanded="false">Ver ferramentas ↗</button>
+            <button class="text-button" type="button" aria-label="Ver práticas de Customer Success (CS)" aria-controls="tools-CS" aria-expanded="false">Ver práticas ↗</button>
           </div>
           <div class="area-back panel" id="tools-CS" inert>
             <div class="tools-heading">
-              <h3>Ferramentas · CS</h3>
+              <h3>Práticas · CS</h3>
                           </div>
-            <ul class="tools"><li>HubSpot CRM</li><li>Salesforce</li><li>Intercom</li><li>Zendesk</li><li>Gainsight</li><li>Jira</li></ul>
+            <ul class="tools"><li>Onboarding</li><li>Jornada do cliente</li><li>Health Score</li><li>Playbooks</li><li>Adoção</li><li>Retenção</li></ul>
           </div>
         </div>
       </article>
@@ -78,13 +87,13 @@
             <img src="assets/quality-assurance.png" alt="" width="32" height="32">
             <h2>Quality Assurance (QA)</h2>
             <p>Análise de requisitos, planejamento de testes e melhoria da qualidade de software.</p>
-            <button class="text-button" type="button" aria-label="Ver ferramentas de Quality Assurance (QA)" aria-controls="tools-QA" aria-expanded="false">Ver ferramentas ↗</button>
+            <button class="text-button" type="button" aria-label="Ver ferramentas e práticas de Quality Assurance (QA)" aria-controls="tools-QA" aria-expanded="false">Ver ferramentas e práticas ↗</button>
           </div>
           <div class="area-back panel" id="tools-QA" inert>
             <div class="tools-heading">
-              <h3>Ferramentas · QA</h3>
+              <h3>Ferramentas e práticas · QA</h3>
                           </div>
-            <ul class="tools"><li>Qase</li><li>TestRail</li><li>Postman</li><li>Playwright</li><li>Cypress</li><li>Selenium</li></ul>
+            <ul class="tools"><li>Qase</li><li>Playwright</li><li>Test design</li><li>Testes manuais</li><li>Regressão</li><li>Rastreabilidade</li></ul>
           </div>
         </div>
       </article>
@@ -99,7 +108,7 @@
           <p class="urban-subtitle">Gestão imobiliária</p>
           <p class="urban-summary">Do onboarding aos testes funcionais, acompanhe os dois estudos de caso da plataforma.</p>
         </div>
-        <img src="assets/urban-dashboard.png" alt="Dashboard da plataforma de gestão imobiliária URBAN" width="1422" height="800" loading="lazy">
+        <img src="assets/urban-dashboard.png" alt="Dashboard real do projeto URBAN com indicadores, pipeline de negociações e desempenho da equipe" width="1920" height="970" loading="lazy">
       </article>
       <div class="two-columns projects">
         <article class="project panel" aria-labelledby="project-cs-title">
@@ -122,7 +131,9 @@
       <div class="about-copy">
         <p class="eyebrow">Sobre mim</p>
         <h2 id="about-title" class="section-title">Entre tecnologia,<br>pessoas e processos.</h2>
-        <p class="about-description">Minha trajetória reúne experiências em educação, tecnologia, pesquisa e desenvolvimento de projetos. Atualmente, foco em Customer Success e Quality Assurance, buscando entregar produtos e serviços digitais mais eficientes e humanos.</p>
+        <div class="about-description">
+          <p>Minha trajetória une educação e tecnologia, com experiências em ensino de IA, educação inclusiva e jogos digitais, que ampliaram meu olhar sobre pessoas, processos e soluções. Hoje, concentro meus esforços em Customer Success (CS) e Quality Assurance (QA), explorando também UX/UI e desenvolvimento de software. <strong>Acredito que boa parte do aprendizado acontece quando a gente coloca a mão na massa.</strong></p>
+        </div>
       </div>
       <div class="about-photo"><img src="assets/trajetoria.jpg" alt="Pedro Albuquerque em um ambiente de trabalho" width="1280" height="960" loading="lazy"></div>
       <div class="about-experiences">
@@ -175,18 +186,25 @@
       </div>
     </section>
     <section id="contato" class="page-section contact" aria-labelledby="contact-title">
-      <div>
+      <div class="contact-intro">
         <p class="eyebrow">Contato</p>
-        <h2 id="contact-title" class="section-title">Vamos construir<br>boas experiências?</h2>
-        <p>Estou aberto a oportunidades de estágio e posições júnior em Customer Success e Quality Assurance.</p>
+        <h2 id="contact-title" class="section-title">Uma boa conversa<br>pode ser o começo.</h2>
+        <p>Estou aberto a oportunidades em Customer Success e Quality Assurance. Quer falar sobre um projeto, uma vaga ou trocar ideias?</p>
+        <a class="contact-email" href="mailto:p3dro.albuquerque@gmail.com">p3dro.albuquerque@gmail.com <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="contact-actions">
-        <button class="button button-primary" id="open-contact" type="button">Entrar em contato</button>
-        <a class="button button-outline" href="assets/curriculo-pedro-albuquerque.pdf" download="Pedro-Albuquerque-Curriculo.pdf" data-download-cv>Baixar Currículo</a>
+      <div class="contact-side">
+        <p class="contact-side-label">OUTROS CANAIS</p>
+        <a href="https://www.linkedin.com/in/pedroalbuqu3rque" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/pedroalbuqu3rque" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="https://wa.me/5562981842417" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
-  <footer class="container site-footer"><strong>Pedro Albuquerque</strong><span>Feito aqui. Por mim</span></footer>
+  <footer class="container site-footer">
+    <strong>Pedro Albuquerque<span class="footer-dot">.</span></strong>
+    <span>Feito aqui. Por mim.</span>
+    <a class="footer-cv" href="assets/curriculo-pedro-albuquerque.pdf" download="Pedro-Albuquerque-Curriculo.pdf" data-download-cv>Baixar currículo <span aria-hidden="true">↓</span></a>
+  </footer>
   <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
     <form method="dialog"><button class="close-dialog" aria-label="Fechar contato"><img src="assets/fechar.svg" alt=""></button></form>
     <p class="eyebrow">Contato</p>
