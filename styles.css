@@ -637,3 +637,19 @@ body:has(.contact-dialog[open]) { overflow: hidden; }
   .site-footer { grid-template-columns: 1fr; }
   .site-footer > strong, .site-footer > span, .site-footer > .footer-cv { grid-column: 1; text-align: left; }
 }
+
+/* Mobile: verso dos cards de CS/QA deve caber integralmente, sem recortes. */
+@media (max-width: 44rem) {
+  .areas { row-gap: 12px; }
+  .area-inner { min-height: 148px; transition: transform .45s ease, min-height .25s ease; }
+  .area.is-flipped .area-inner { min-height: 258px; }
+  .area-back { overflow: visible; padding: 18px; justify-content: center; }
+  .area-back .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .area-back .tools li { min-height: 46px; padding: 8px 6px; font-size: 13px; line-height: 1.35; }
+  .area-back .tools-heading { margin-bottom: 12px; }
+  .area-back .tools-heading h3 { font-size: 17px; }
+  #projetos { margin-top: 48px; }
+}
+@media (max-width: 22rem) {
+  .area.is-flipped .area-inner { min-height: 278px; }
+}
